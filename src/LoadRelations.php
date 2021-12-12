@@ -31,6 +31,8 @@ class LoadRelations
         // Only include the `lastPost` relation if we need it.
         if ($this->settings->get('ianm-synopsis.excerpt-type') === 'last') {
             $controller->addInclude('lastPost');
+        } else {
+            $controller->addInclude('firstPost');
         }
     }
 }
