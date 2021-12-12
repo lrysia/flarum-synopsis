@@ -33,11 +33,10 @@ return [
         ->serializeToForum('synopsis.excerpt_type', 'ianm-synopsis.excerpt-type'),
 
     (new Extend\ApiController(ListDiscussionsController::class))
-        ->addInclude(['firstPost', 'lastPost'])
-        ->load('lastPost'),
+        ->prepareDataForSerialization(LoadRelations::class),
 
     (new Extend\ApiController(UpdateDiscussionController::class))
-        ->addInclude(['lastPost']),
+        ->prepareDataForSerialization(LoadRelations::class),
 
     (new Extend\User())
         ->registerPreference('showSynopsisExcerpts', 'boolVal', true)
