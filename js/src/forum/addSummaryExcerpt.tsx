@@ -6,6 +6,7 @@ import { truncate } from 'flarum/common/utils/string';
 import ItemList from 'flarum/common/utils/ItemList';
 import Tag from 'flarum/tags/models/Tag';
 import Model from 'flarum/common/Model';
+import { getPlainContent } from './util/getPlainContent';
 
 export default function addSummaryExcerpt() {
   if (app.initializers.has('flarum-tags')) {
@@ -41,12 +42,14 @@ export default function addSummaryExcerpt() {
       return;
     }
 
+    // Interim fix, remove after Flarum 1.2 availability, see https://github.com/flarum/core/pull/3193
+    //const content = richExcerpt ? m.trust(truncate(excerptPost.contentHtml(), excerptLength)) : truncate(excerptPost.contentPlain(), excerptLength);
+    const content = richExcerpt
+      ? m.trust(truncate(excerptPost.contentHtml(), excerptLength))
+      : truncate(getPlainContent(excerptPost.contentHtml()), excerptLength);
+
     if (excerptPost) {
-      const excerpt = (
-        <div inert>
-          {richExcerpt ? m.trust(truncate(excerptPost.contentHtml(), excerptLength)) : truncate(excerptPost.contentPlain(), excerptLength)}
-        </div>
-      );
+      const excerpt = <div inert>{content}</div>;
 
       items.add(onMobile ? 'excerptM' : 'excerpt', excerpt, -100);
     }
