@@ -20,10 +20,10 @@ class Saving
     {
         $attributes = Arr::get($event->data, 'attributes', []);
 
-        $excerptLength = Arr::get($attributes, 'excerptLength');
-        $event->tag->excerpt_length = $excerptLength;
+        $excerptLength = Arr::get($attributes, 'excerptLength', '');
+        $event->tag->excerpt_length = $excerptLength === '' ? null : $excerptLength;
 
-        $richExcerpts = Arr::get($attributes, 'richExcerpts');
+        $richExcerpts = Arr::get($attributes, 'richExcerpts', false);
         $event->tag->rich_excerpts = $richExcerpts === null ? $richExcerpts : (bool) $richExcerpts;
     }
 }
