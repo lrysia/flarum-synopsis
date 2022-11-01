@@ -28,6 +28,9 @@ return [
     new Extend\Locales(__DIR__.'/resources/locale'),
 
     (new Extend\Settings())
+        ->default('ianm-synopsis.excerpt_length', 200)
+        ->default('ianm-synopsis.rich-excerpts', false)
+        ->default('ianm-synopsis.excerpt-type', 'first')
         ->serializeToForum('synopsis.excerpt_length', 'ianm-synopsis.excerpt_length', 'intVal')
         ->serializeToForum('synopsis.rich_excerpts', 'ianm-synopsis.rich-excerpts', 'boolVal')
         ->serializeToForum('synopsis.excerpt_type', 'ianm-synopsis.excerpt-type'),

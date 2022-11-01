@@ -24,7 +24,8 @@
         "forum": "https://discuss.flarum.org/d/25772"
     },
     "require": {
-        "flarum/core": "^1.2.0"
+        "flarum/core": "^1.2.0",
+        "flarum/tags": "*"
     },
     "autoload": {
         "psr-4": {
@@ -45,10 +46,30 @@
                 "name": "fas fa-comment-dots",
                 "backgroundColor": "#0072e3",
                 "color": "#fff"
-            },
-            "optional-dependencies": [
-              "flarum/tags"
-            ]
+            }
         }
+    },
+    "scripts": {
+        "test": [
+            "@test:unit",
+            "@test:integration"
+        ],
+        "test:unit": "phpunit -c tests/phpunit.unit.xml",
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:unit": "Runs all unit tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once."
+    },
+    "require-dev": {
+      "flarum/core": "*@dev",
+      "flarum/testing": "^1.0.0",
+      "symfony/var-dumper": "*"
+    },
+    "config": {
+      "sort-packages": true
     }
 }
