@@ -51,7 +51,7 @@ class DiscussionTest extends TestCase
                 ['id' => 19, 'number' => 20, 'discussion_id' => 2, 'created_at' => Carbon::now(), 'user_id' => 4, 'type' => 'comment', 'content' => '<r><POSTMENTION displayname="Bad &quot;#p6 User" id="9" number="10" discussionid="2">@"Bad "#p6 User"#p9</POSTMENTION></r>'],
                 ['id' => 20, 'number' => 21, 'discussion_id' => 2, 'created_at' => Carbon::now(), 'user_id' => 40, 'type' => 'comment', 'content' => '<r><POSTMENTION displayname="Bad &quot;#p6 User" id="9" number="10" discussionid="2">@"Bad "#p6 User"#p9</POSTMENTION></r>'],
                 ['id' => 21, 'number' => 22, 'discussion_id' => 2, 'created_at' => Carbon::now(), 'user_id' => 4, 'type' => 'comment', 'content' => '<r><POSTMENTION displayname="deleted_user" id="11" number="12" discussionid="2">@"acme"#p11</POSTMENTION></r>'],
-            ]
+            ],
         ]);
     }
 

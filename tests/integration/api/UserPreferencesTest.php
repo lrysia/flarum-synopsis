@@ -18,7 +18,7 @@ use Flarum\User\User;
 class UserPreferencesTest extends TestCase
 {
     use RetrievesAuthorizedUsers;
-    
+
     protected function setup(): void
     {
         parent::setup();
@@ -26,7 +26,7 @@ class UserPreferencesTest extends TestCase
         $this->extension('flarum-tags', 'ianm-synopsis');
 
         $this->prepareDatabase([
-            'users' => [$this->normalUser()]
+            'users' => [$this->normalUser()],
         ]);
     }
 
