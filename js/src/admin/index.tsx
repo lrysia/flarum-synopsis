@@ -4,7 +4,7 @@ import typeOptions from './util/typeOptions';
 
 app.initializers.add('ianm-synopsis', () => {
   app.extensionData
-    .for('ianm-synopsis')
+    .for('lrysia-synopsis')
     .registerSetting(function () {
       if (!('flarum-tags' in flarum.extensions)) return;
       return (

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@ianm/synopsis",
+  "name": "@lrysia/synopsis",
   "prettier": "@flarum/prettier-config",
   "dependencies": {
     "flarum-webpack-config": "^2.0.0",

@@ -38,12 +38,10 @@ return [
     (new Extend\ApiController(ListDiscussionsController::class))
         ->prepareDataForSerialization(LoadRelations::class),
 
-    (new Extend\ApiController(UpdateDiscussionController::class))
-        ->prepareDataForSerialization(LoadRelations::class),
 
     (new Extend\User())
-        ->registerPreference('showSynopsisExcerpts', 'boolVal', true)
-        ->registerPreference('showSynopsisExcerptsOnMobile', 'boolVal', false),
+        ->registerPreference('showSynopsisExcerpts', 'boolVal', true),
+//        ->registerPreference('showSynopsisExcerptsOnMobile', 'boolVal', false),
 
     (new Extend\Event())
         ->listen(TagSaving::class, Tags\Saving::class),

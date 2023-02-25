@@ -47,28 +47,28 @@ export default function () {
         app.translator.trans('ianm-synopsis.forum.user.settings.show-summaries')
       )
     );
-
-    if (this.user.preferences().showSynopsisExcerpts) {
-      items.add(
-        'synopsis-excerpts-mobile',
-        Switch.component(
-          {
-            state: this.user.preferences().showSynopsisExcerptsOnMobile,
-            disabled: !this.user.preferences().showSynopsisExcerpts,
-            onchange: (value) => {
-              this.showSynopsisExcerptsOnMobileLoading = true;
-
-              this.user.savePreferences({ showSynopsisExcerptsOnMobile: value }).then(() => {
-                this.showSynopsisExcerptsOnMobileLoading = false;
-                window.location.reload();
-              });
-            },
-            loading: this.showSynopsisExcerptsOnMobileLoading,
-          },
-          app.translator.trans('ianm-synopsis.forum.user.settings.show-summaries-mobile')
-        )
-      );
-    }
+    //
+    // if (this.user.preferences().showSynopsisExcerpts) {
+    //   items.add(
+    //     'synopsis-excerpts-mobile',
+    //     Switch.component(
+    //       {
+    //         state: this.user.preferences().showSynopsisExcerptsOnMobile,
+    //         disabled: !this.user.preferences().showSynopsisExcerpts,
+    //         onchange: (value) => {
+    //           this.showSynopsisExcerptsOnMobileLoading = true;
+    //
+    //           this.user.savePreferences({ showSynopsisExcerptsOnMobile: value }).then(() => {
+    //             this.showSynopsisExcerptsOnMobileLoading = false;
+    //             window.location.reload();
+    //           });
+    //         },
+    //         loading: this.showSynopsisExcerptsOnMobileLoading,
+    //       },
+    //       app.translator.trans('ianm-synopsis.forum.user.settings.show-summaries-mobile')
+    //     )
+    //   );
+    // }
 
     return items;
   };
