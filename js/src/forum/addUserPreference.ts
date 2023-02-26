@@ -10,7 +10,7 @@ import Stream from 'flarum/common/utils/Stream';
 export default function () {
   extend(SettingsPage.prototype, 'oninit', function () {
     this.showSynopsisExcerpts = Stream(this.user.preferences().showSynopsisExcerpts);
-    this.showSynopsisExcerptsOnMobile = Stream(this.user.preferences().showSynopsisExcerptsOnMobile);
+    // this.showSynopsisExcerptsOnMobile = Stream(this.user.preferences().showSynopsisExcerptsOnMobile);
   });
 
   extend(SettingsPage.prototype, 'settingsItems', function (items: ItemList) {
