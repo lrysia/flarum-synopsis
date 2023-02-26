@@ -29,7 +29,14 @@ export default function addSummaryExcerpt() {
       return;
     }
 
-    const tags = discussion.tags();
+    // 搜索时不再应用本插件提供的预览功能，因为这样会让搜索结果原本的预览被覆盖
+    // 搜索结果原本的预览会把关键词所在段落涵盖进去，但本插件总是只显示帖子开头/结尾的设定字符数
+    if(app.discussions.params?.q !== undefined){
+      return;
+    }
+
+
+      const tags = discussion.tags();
     let tag;
     if (tags) {
       tag = tags[tags.length - 1];
@@ -98,7 +105,6 @@ export default function addSummaryExcerpt() {
     // 非文本资源
     const contentResource = richExcerpt ?  getResource(excerptPost.contentHtml(), maxResources) : '';
 
-    console.log(contentResource);
     // 原插件的核心实现
     // const content = richExcerpt ? m.trust(truncate(excerptPost.contentHtml(), excerptLength)) : truncate(excerptPost.contentPlain(), excerptLength);
 
